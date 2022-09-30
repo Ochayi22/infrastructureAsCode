@@ -29,8 +29,8 @@ pipeline {
         stage {'Code Quality Scan' } {         
                
          steps {      
-          withsonarqube{en{ 'sonar-server'}  {        
-        sh 'mvn -f  SampleWebApp/ 
+          withsonarqube en{ 'sonar-server'}  {        
+        sh 'mvn -f  SampleWebApp/pom.xml sonar:sonar' 
               
               
         }
@@ -38,4 +38,10 @@ pipeline {
      }
     }
     
-}
+
+            
+            
+            
+            
+            
+            
