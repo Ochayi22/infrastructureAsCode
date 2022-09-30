@@ -10,9 +10,9 @@ pipeline {
           
      }
        
-        
-            
-                
+        stage{'build with maven' }   {
+            step   {
+               sh  'cd    
             
         
         
