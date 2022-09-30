@@ -4,7 +4,7 @@ pipeline {
     stages   {
      stage('Git checkout') {
             steps {
-               git 'https://github.com/tkibnyusuf/infrastructureAsCode.git'
+               git 'https://github.com/Ochayi22/infrastructureAsCode.git
         
          }
           
@@ -28,9 +28,11 @@ pipeline {
          }
         stage {'Code Quality Scan' } {         
                
-         steps      
-                  
-            }
+         steps {      
+          withsonarqube{en{ 'sonar-server'}  {        
+        sh 'mvn -f  SampleWebApp/ 
+              
+              
         }
                
      }
