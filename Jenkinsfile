@@ -1,15 +1,20 @@
 pipeline {
     agent any
-    environment {
-        AWS_ACCOUNT_ID="775012328020"
-        AWS_DEFAULT_REGION="us-east-1"     
-    }
-    stages {
-        stage('Git checkout') {
+    
+    stages   {
+     stage('Git checkout') {
             steps {
-                git 'https://github.com/tkibnyusuf/infrastructureAsCode.git'
-            }
-        }
+               git 'https://github.com/tkibnyusuf/infrastructureAsCode.git'
+        
+         }
+          
+     }
+       
+        
+            
+                
+            
+        
         
         stage('provision server') {
            environment {
