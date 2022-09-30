@@ -12,21 +12,24 @@ pipeline {
        
         stage{'build with maven' }   {
             step   {
-               sh  'cd    
+               sh  'cd SampleWebApp && mvn clean install    
             
-        
-        
-        stage('provision server') {
-           environment {
-             AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
-             AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
+         }
+      
+       }         
+                
+          stage {'test'} {          
+          steps {
+              sh 'cd SampleWebApp && mvn test'
+             
+             
            }
-           steps {
-              script {
-                  sh "terraform init"
-                  sh "terraform validate"
-                  sh "terraform plan"
-                  sh " terraform destroy --auto-approve"
+        
+         }
+        stage {'Code Quality Scan' } {         
+               
+         steps      
+                  
             }
         }
                
